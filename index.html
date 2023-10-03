@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Chinese Chess (Xiangqi) - 21120171</title>
+</head>
+
+<body>
+  <!-- <h1>Nguyễn Đình Ánh - 21120171</h1> -->
+  <!-- Chinese chess board -->
+  <div class="game-container">
+    <div class="chess-board">
+      <img class="board-image" src="/img/board/board.png" alt="Board image">
+      <div class="pieces-field">
+        <div class="row">
+          <div class="square">
+            <img class="piece bRook" src="/img/pieces/bR.png" alt="black Rook">
+          </div>
+          <div class="square">
+            <img class="piece" src="/img/pieces/bN.png" alt="black B">
+          </div>
+          <div class="square">
+            <img class="piece" src="/img/pieces/bB.png" alt="black B">
+          </div>
+          <div class="square">
+            <img class="piece" src="/img/pieces/bA.png" alt="black B">
+          </div>
+          <div class="square">
+            <img class="piece" src="/img/pieces/bK.png" alt="black B">
+          </div>
+          <div class="square">
+            <img class="piece" src="/img/pieces/bA.png" alt="black B">
+          </div>
+          <div class="square">
+            <img class="piece" src="/img/pieces/bB.png" alt="black B">
+          </div>
+          <div class="square">
+            <img class="piece" src="/img/pieces/bN.png" alt="black B">
+          </div>
+          <div class="square">
+            <img class="piece" src="/img/pieces/bR.png" alt="black B">
+          </div>
+        </div>
+        <div class="row">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+        <div class="row">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+        <div class="row">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+        <div class="row">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+        <div class="row">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+        <div class="row">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+        <div class="row">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+        <div class="row">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+        <div class="row">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    let board = document.querySelector(".chess-board");
+    let boardCoord = Array.from(document.querySelectorAll(".square"));
+
+    // let i = 0;
+    // boardCoord.forEach((item, index) => {
+    //   item.insertAdjacentText("beforeend", index);
+    // });
+
+    // 
+
+    let temp = document.createElement("div");
+    temp.innerHTML = "hehe";
+
+    let onDrag;
+
+    function onMouseMove(event) {
+      let newX = event.clientX - board.getBoundingClientRect().left;
+      let newY = event.clientY - board.getBoundingClientRect().top;
+
+      newX = Math.floor(newX / 67.0125);
+      newY = Math.floor(newY / 65.6);
+
+      // console.log(`X:${newX} - Y:${newY} - ${event.target.className} - ${onDrag.className}`);
+
+      // boardCoord[newX + (newY * 9)].insertAdjacentElement("beforeend", temp);
+
+      let destination = boardCoord[newX + newY * 9];
+      if (destination.children.length != 0 && destination.children[0].classList.contains("piece")) {
+        destination.children[0].remove();
+        console.log("Removed");
+      }
+      destination.insertAdjacentElement("beforeend", onDrag);
+
+    }
+
+    function onMouseUp(event) {
+      console.log("MOuse up");
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    }
+
+    document.querySelectorAll(".piece").forEach(piece => {
+
+      piece.addEventListener("mousedown", event => {
+
+        if (!event.target.classList.contains("piece")) return true;
+
+        onDrag = event.target;
+
+        console.log("MOuse down");
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+
+        piece.ondragstart = event => event.preventDefault();
+
+      });
+
+    });
+
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 1000px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+}
+
+.game-container .chess-board {
+  border: 5px solid black;
+  width: 40vw;
+  position: relative;
+}
+
+.game-container .chess-board .board-image {
+  width: 100%;
+  display: block;
+}
+
+.game-container .chess-board .pieces-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+
+.game-container .chess-board .pieces-field .row {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 10%;
+}
+
+.game-container .chess-board .pieces-field .row .square {
+  border: 1px solid red;
+  width: 11.1111%;
+  padding: 2px;
+}
+
+.game-container .chess-board .pieces-field .row .square .piece {
+  width: 100%;
+}
+
+.game-container .chess-board .pieces-field .row .square .piece:hover {
+  cursor: pointer;
+}
