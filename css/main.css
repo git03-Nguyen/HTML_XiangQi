@@ -41,7 +41,6 @@ h1 {
 }
 
 .game-container .chess-board .pieces-field .row {
-  border: 1px solid red;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -49,8 +48,7 @@ h1 {
 }
 
 .game-container .chess-board .pieces-field .row .square {
-  border: 1px solid red;
-  width: 11.1111%;
+  width: 11.1112%;
   padding: 2px;
 }
 
@@ -60,4 +58,8 @@ h1 {
 
 .game-container .chess-board .pieces-field .row .square .piece:hover {
   cursor: pointer;
+}
+
+.highlight {
+  box-shadow: inset 0 0 3px 3px rgb(255, 255, 0);
 }

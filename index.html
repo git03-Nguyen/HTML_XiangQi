@@ -150,21 +150,26 @@
   <script>
 
     let board = document.querySelector(".chess-board");
-    let boardCoord = Array.from(document.querySelectorAll(".square"));
+    let allSquares = Array.from(document.querySelectorAll(".square"));
 
     // let i = 0;
-    // boardCoord.forEach((item, index) => {
-    //   item.insertAdjacentText("beforeend", index);
+    // allSquares.forEach((item, index) => {
+    //   item.onmouseover = () => {
+    //     // if (!item.contains(onDrag)) {
+    //     //   console.log(item);
+    //     // }
+    //     // console.log(`${Math.floor(index / 9)} : ${index % 9}`);
+
+
+    //   }
     // });
 
     // 
 
-    let temp = document.createElement("div");
-    temp.innerHTML = "hehe";
-
-    let onDrag;
+    let pieceDragged = null; // no piece is being dragged
 
     function onMouseMove(event) {
+
       let newX = event.clientX - board.getBoundingClientRect().left;
       let newY = event.clientY - board.getBoundingClientRect().top;
 
@@ -175,12 +180,17 @@
 
       // boardCoord[newX + (newY * 9)].insertAdjacentElement("beforeend", temp);
 
-      let destination = boardCoord[newX + newY * 9];
+      let destination = allSquares[newX + newY * 9];
+      if (destination.contains(pieceDragged)) return;
+
+      destination.classList.toggle("highlight");
+
       if (destination.children.length != 0 && destination.children[0].classList.contains("piece")) {
         destination.children[0].remove();
         console.log("Removed");
       }
-      destination.insertAdjacentElement("beforeend", onDrag);
+      destination.insertAdjacentElement("beforeend", pieceDragged);
+
 
     }
 
@@ -188,6 +198,7 @@
       console.log("MOuse up");
       document.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseup', onMouseUp);
+      pieceDragged = null;
     }
 
     document.querySelectorAll(".piece").forEach(piece => {
@@ -196,9 +207,11 @@
 
         if (!event.target.classList.contains("piece")) return true;
 
-        onDrag = event.target;
+        pieceDragged = event.target;
+        // pieceDragged.style.display = "none";
+        // body.insertAdjacentElement("beforeend", pieceDragged.cloneNode());
 
-        console.log("MOuse down");
+        console.log("Mouse down");
 
         document.addEventListener('mousemove', onMouseMove);
         document.addEventListener('mouseup', onMouseUp);
@@ -208,6 +221,8 @@
       });
 
     });
+
+
 
 
 
