@@ -149,79 +149,120 @@
 
   <script>
 
-    let board = document.querySelector(".chess-board");
+    let chessBoard = document.querySelector(".chess-board");
     let allSquares = Array.from(document.querySelectorAll(".square"));
 
-    // let i = 0;
-    // allSquares.forEach((item, index) => {
-    //   item.onmouseover = () => {
-    //     // if (!item.contains(onDrag)) {
-    //     //   console.log(item);
-    //     // }
-    //     // console.log(`${Math.floor(index / 9)} : ${index % 9}`);
-
-
-    //   }
-    // });
-
-    // 
-
     let pieceDragged = null; // no piece is being dragged
+    let oldSquare = null;
+    let lastHoverSquare = null;
 
-    function onMouseMove(event) {
+    function movePieceAtSpace(x, y) {
+      const boardRect = chessBoard.getBoundingClientRect();
+      pieceDragged.style.left = (x - boardRect.left - pieceDragged.offsetWidth / 2) + "px";
+      pieceDragged.style.top = (y - boardRect.top - pieceDragged.offsetHeight / 2) + "px";
+    }
 
-      let newX = event.clientX - board.getBoundingClientRect().left;
-      let newY = event.clientY - board.getBoundingClientRect().top;
-
-      newX = Math.floor(newX / 67.0125);
-      newY = Math.floor(newY / 65.6);
-
-      // console.log(`X:${newX} - Y:${newY} - ${event.target.className} - ${onDrag.className}`);
-
-      // boardCoord[newX + (newY * 9)].insertAdjacentElement("beforeend", temp);
-
-      let destination = allSquares[newX + newY * 9];
-      if (destination.contains(pieceDragged)) return;
-
-      destination.classList.toggle("highlight");
-
-      if (destination.children.length != 0 && destination.children[0].classList.contains("piece")) {
-        destination.children[0].remove();
-        console.log("Removed");
+    function movePieceAtSquare(x, y) {
+      const newPosition = x + y * 9;
+      const valid = (newPosition < 0 || newPosition > allSquares.length);
+      if (!valid) {
+        allSquares[oldSquare].append(pieceDragged);
+      } else {
+        allSquares[newPosition].children[0]?.remove();
+        allSquares[newPosition].append(pieceDragged);
       }
-      destination.insertAdjacentElement("beforeend", pieceDragged);
+    }
+
+    function onMouseDownHandler(event) {
+      if (!event.target.classList.contains("piece")) return;
+      pieceDragged = event.target;
+      oldSquare = pieceDragged.parentElement;
+      console.log("Mouse down");
+
+      chessBoard.insertAdjacentElement("afterBegin", pieceDragged);
+      pieceDragged.classList.add("dragging");
+      oldSquare.classList.add("highlighted");
+
+      movePieceAtSpace(event.clientX, event.clientY);
+
+      document.addEventListener('mousemove', onMouseMoveHandler);
+      document.addEventListener('mouseup', onMouseUpHandler);
+    }
+
+    function onMouseMoveHandler(event) {
+
+      console.log("Mouse move");
+      movePieceAtSpace(event.clientX, event.clientY);
+
+      oldSquare.classList.add("highlighted");
+
+      pieceDragged.hidden = true;
+      let elemBelow = document.elementFromPoint(event.clientX, event.clientY)?.closest(".square");
+      pieceDragged.hidden = false;
+
+      if (elemBelow != lastHoverSquare) {
+        if (lastHoverSquare) {
+          leaveHighlight();
+        }
+        lastHoverSquare = elemBelow;
+
+        if (lastHoverSquare) {
+          enterHighlight();
+        }
+      }
+
+
+
+
+
+
+      // newX = Math.floor(newX / 67.0125);
+      // newY = Math.floor(newY / 65.6);
+      // console.log(`X:${newX} - Y:${newY} - ${event.target.className} - ${onDrag.className}`);
+      // boardCoord[newX + (newY * 9)].insertAdjacentElement("beforeend", temp);
+      // let destination = allSquares[newX + newY * 9];
+      // if (destination.contains(pieceDragged)) return;
+      // destination.classList.toggle("highlighted");
+
 
 
     }
 
-    function onMouseUp(event) {
-      console.log("MOuse up");
-      document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseup', onMouseUp);
+    function leaveHighlight() {
+      lastHoverSquare.classList.remove("highlighted");
+    }
+
+    function enterHighlight() {
+      lastHoverSquare.classList.add("highlighted");
+    }
+
+    function onMouseUpHandler(event) {
+      console.log("Mouse up");
+      document.removeEventListener('mousemove', onMouseMoveHandler);
+      document.removeEventListener('mouseup', onMouseUpHandler);
+      pieceDragged.classList.remove("dragging");
+      if (!lastHoverSquare) {
+        oldSquare.append(pieceDragged); //
+      } else {
+        if (lastHoverSquare.children.length != 0) {
+          lastHoverSquare.children[0].remove();
+          console.log("Removed!");
+        }
+        lastHoverSquare.append(pieceDragged);
+      }
+
+      oldSquare?.classList.remove("highlighted");
+      lastHoverSquare?.classList.remove("highlighted");
+
       pieceDragged = null;
+      oldSquare = null;
+      lastHoverSquare = null;
     }
 
     document.querySelectorAll(".piece").forEach(piece => {
-
-      piece.addEventListener("mousedown", event => {
-
-        if (!event.target.classList.contains("piece")) return true;
-
-        pieceDragged = event.target;
-        // pieceDragged.style.display = "none";
-        // body.insertAdjacentElement("beforeend", pieceDragged.cloneNode());
-
-        console.log("Mouse down");
-
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onMouseUp);
-
-        piece.ondragstart = event => event.preventDefault();
-
-      });
-
+      piece.addEventListener("mousedown", onMouseDownHandler);
+      piece.ondragstart = (event) => event.preventDefault();
     });
-
 
 
 

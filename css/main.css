@@ -56,10 +56,12 @@ h1 {
   width: 100%;
 }
 
-.game-container .chess-board .pieces-field .row .square .piece:hover {
-  cursor: pointer;
+.highlighted {
+  box-shadow: inset 0 0 3px 3px rgb(255, 255, 0);
 }
 
-.highlight {
-  box-shadow: inset 0 0 3px 3px rgb(255, 255, 0);
+.dragging {
+  position: absolute;
+  width: 11.1112%;
+  z-index: 100;
 }
