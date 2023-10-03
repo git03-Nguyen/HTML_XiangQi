@@ -17,10 +17,10 @@
       <div class="pieces-field">
         <div class="row">
           <div class="square">
-            <img class="piece bRook" src="/img/pieces/bR.png" alt="black Rook">
+            <img class="piece black chariot draggable" src="/img/pieces/bR.png" alt="black Rook">
           </div>
           <div class="square">
-            <img class="piece" src="/img/pieces/bN.png" alt="black B">
+            <img class="piece black horse draggable" src="/img/pieces/bN.png" alt="black B">
           </div>
           <div class="square">
             <img class="piece" src="/img/pieces/bB.png" alt="black B">
@@ -149,32 +149,38 @@
 
   <script>
 
-    let chessBoard = document.querySelector(".chess-board");
-    let allSquares = Array.from(document.querySelectorAll(".square"));
+    // Initializer
+    let chessBoard = document.querySelector(".game-container .chess-board");
+    let allSquares = Array.from(document.querySelectorAll(".game-container .chess-board .pieces-field .row .square"));
+    allSquares.forEach((square, index) => {
+      square.dataset.x = index % 9;
+      square.dataset.y = Math.floor(index / 9);
+    });
 
     let pieceDragged = null; // no piece is being dragged
+    let availableMoves = null;
     let oldSquare = null;
     let lastHoverSquare = null;
 
-    function movePieceAtSpace(x, y) {
-      const boardRect = chessBoard.getBoundingClientRect();
-      pieceDragged.style.left = (x - boardRect.left - pieceDragged.offsetWidth / 2) + "px";
-      pieceDragged.style.top = (y - boardRect.top - pieceDragged.offsetHeight / 2) + "px";
-    }
-
-    function movePieceAtSquare(x, y) {
-      const newPosition = x + y * 9;
-      const valid = (newPosition < 0 || newPosition > allSquares.length);
-      if (!valid) {
-        allSquares[oldSquare].append(pieceDragged);
+    document.querySelectorAll(".piece").forEach(piece => {
+      piece.addEventListener("mousedown", onMouseDownHandler);
+      piece.ondragstart = (event) => event.preventDefault();
+      piece.dataset.tableMoves = new Array();
+      if (piece.classList.contains("black")) {
+        piece.dataset.isBlack = true;
       } else {
-        allSquares[newPosition].children[0]?.remove();
-        allSquares[newPosition].append(pieceDragged);
+        piece.dataset.isBlack = false;
       }
-    }
+    });
 
+    // First update
+    updateMoves();
+
+    // Mouse down handler
     function onMouseDownHandler(event) {
       if (!event.target.classList.contains("piece")) return;
+      if (!event.target.classList.contains("draggable")) return;
+
       pieceDragged = event.target;
       oldSquare = pieceDragged.parentElement;
       console.log("Mouse down");
@@ -185,84 +191,70 @@
 
       movePieceAtSpace(event.clientX, event.clientY);
 
+      //showMoves(pieceDragged);
+
       document.addEventListener('mousemove', onMouseMoveHandler);
       document.addEventListener('mouseup', onMouseUpHandler);
-    }
 
-    function onMouseMoveHandler(event) {
+      // Mouse move handler
+      function onMouseMoveHandler(event) {
 
-      console.log("Mouse move");
-      movePieceAtSpace(event.clientX, event.clientY);
+        console.log("Mouse move");
+        movePieceAtSpace(event.clientX, event.clientY);
+        oldSquare.classList.add("highlighted");
 
-      oldSquare.classList.add("highlighted");
+        pieceDragged.hidden = true;
+        let elemBelow = document.elementFromPoint(event.clientX, event.clientY)?.closest(".square");
+        pieceDragged.hidden = false;
 
-      pieceDragged.hidden = true;
-      let elemBelow = document.elementFromPoint(event.clientX, event.clientY)?.closest(".square");
-      pieceDragged.hidden = false;
-
-      if (elemBelow != lastHoverSquare) {
-        if (lastHoverSquare) {
-          leaveHighlight();
+        if (elemBelow != lastHoverSquare) {
+          if (lastHoverSquare) {
+            lastHoverSquare.classList.remove("highlighted");
+          }
+          lastHoverSquare = elemBelow;
+          if (lastHoverSquare && lastHoverSquare.classList.contains("can-move-to")) {
+            lastHoverSquare.classList.add("highlighted");
+          } else {
+            lastHoverSquare = null;
+          }
         }
-        lastHoverSquare = elemBelow;
 
-        if (lastHoverSquare) {
-          enterHighlight();
-        }
       }
 
-
-
-
-
-
-      // newX = Math.floor(newX / 67.0125);
-      // newY = Math.floor(newY / 65.6);
-      // console.log(`X:${newX} - Y:${newY} - ${event.target.className} - ${onDrag.className}`);
-      // boardCoord[newX + (newY * 9)].insertAdjacentElement("beforeend", temp);
-      // let destination = allSquares[newX + newY * 9];
-      // if (destination.contains(pieceDragged)) return;
-      // destination.classList.toggle("highlighted");
-
-
-
-    }
-
-    function leaveHighlight() {
-      lastHoverSquare.classList.remove("highlighted");
-    }
-
-    function enterHighlight() {
-      lastHoverSquare.classList.add("highlighted");
-    }
-
-    function onMouseUpHandler(event) {
-      console.log("Mouse up");
-      document.removeEventListener('mousemove', onMouseMoveHandler);
-      document.removeEventListener('mouseup', onMouseUpHandler);
-      pieceDragged.classList.remove("dragging");
-      if (!lastHoverSquare) {
-        oldSquare.append(pieceDragged); //
-      } else {
-        if (lastHoverSquare.children.length != 0) {
-          lastHoverSquare.children[0].remove();
-          console.log("Removed!");
+      // Mouse up handler
+      function onMouseUpHandler(event) {
+        console.log("Mouse up");
+        document.removeEventListener('mousemove', onMouseMoveHandler);
+        document.removeEventListener('mouseup', onMouseUpHandler);
+        pieceDragged.classList.remove("dragging");
+        if (!lastHoverSquare) {
+          oldSquare.append(pieceDragged); //
+        } else {
+          if (lastHoverSquare.children.length != 0) {
+            lastHoverSquare.children[0].remove();
+            console.log("Removed!");
+          }
+          lastHoverSquare.append(pieceDragged);
         }
-        lastHoverSquare.append(pieceDragged);
+
+        oldSquare?.classList.remove("highlighted");
+        lastHoverSquare?.classList.remove("highlighted");
+
+        // unshowMoves(pieceDragged);
+        // updateMoves();
+
+        pieceDragged = null;
+        oldSquare = null;
+        lastHoverSquare = null;
       }
 
-      oldSquare?.classList.remove("highlighted");
-      lastHoverSquare?.classList.remove("highlighted");
+      function movePieceAtSpace(x, y) {
+        const boardRect = chessBoard.getBoundingClientRect();
+        pieceDragged.style.left = (x - boardRect.left - pieceDragged.offsetWidth / 2) + "px";
+        pieceDragged.style.top = (y - boardRect.top - pieceDragged.offsetHeight / 2) + "px";
+      }
 
-      pieceDragged = null;
-      oldSquare = null;
-      lastHoverSquare = null;
     }
-
-    document.querySelectorAll(".piece").forEach(piece => {
-      piece.addEventListener("mousedown", onMouseDownHandler);
-      piece.ondragstart = (event) => event.preventDefault();
-    });
 
 
 
