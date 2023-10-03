@@ -10,7 +10,8 @@ body {
 
 h1 {
   text-align: center;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .game-container {
@@ -20,7 +21,7 @@ h1 {
 
 .game-container .chess-board {
   border: 5px solid black;
-  width: 40vw;
+  width: 35vw;
   position: relative;
 }
 
