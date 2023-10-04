@@ -387,6 +387,15 @@
           }
         }
 
+        if (x - 2 >= 0 && !allSquares[x - 1 + y * 9].firstElementChild) {
+          if (y + 1 < 10 && (!allSquares[x - 2 + (1 + y) * 9].firstElementChild || allSquares[x - 2 + (1 + y) * 9].firstElementChild.color != color)) {
+            horse.tableMoves.push(allSquares[x - 2 + (1 + y) * 9]);
+          }
+          if (y - 1 >= 0 && (!allSquares[x - 2 + (y - 1) * 9].firstElementChild || allSquares[x - 2 + (y - 1) * 9].firstElementChild.color != color)) {
+            horse.tableMoves.push(allSquares[x - 2 + (y - 1) * 9]);
+          }
+        }
+
         if (y + 2 < 10 && !allSquares[x + (1 + y) * 9].firstElementChild) {
           if (x + 1 < 9 && (!allSquares[x + 1 + (2 + y) * 9].firstElementChild || allSquares[x + 1 + (2 + y) * 9].firstElementChild.color != color)) {
             horse.tableMoves.push(allSquares[x + 1 + (2 + y) * 9]);
@@ -396,15 +405,73 @@
           }
         }
 
-        //.....
+        if (y - 2 >= 0 && !allSquares[x + (y - 1) * 9].firstElementChild) {
+          if (x + 1 < 9 && (!allSquares[x + 1 + (y - 2) * 9].firstElementChild || allSquares[x + 1 + (y - 2) * 9].firstElementChild.color != color)) {
+            horse.tableMoves.push(allSquares[x + 1 + (y - 2) * 9]);
+          }
+          if (x - 1 >= 0 && (!allSquares[x - 1 + (y - 2) * 9].firstElementChild || allSquares[x - 1 + (y - 2) * 9].firstElementChild.color != color)) {
+            horse.tableMoves.push(allSquares[x - 1 + (y - 2) * 9]);
+          }
+        }
 
       }
 
       function updateElephantMoves(elephant) {
+        if (x + 2 < 9 && y + 2 < 10 && !allSquares[x + 1 + (1 + y) * 9].firstElementChild) {
+          if (!allSquares[x + 2 + (y + 2) * 9].firstElementChild || allSquares[x + 2 + (y + 2) * 9].firstElementChild.color != color) {
+            elephant.tableMoves.push(allSquares[x + 2 + (y + 2) * 9]);
+          }
+        }
 
+        if (x + 2 < 9 && y - 2 >= 0 && !allSquares[x + 1 + (y - 1) * 9].firstElementChild) {
+          if (!allSquares[x + 2 + (y - 2) * 9].firstElementChild || allSquares[x + 2 + (y - 2) * 9].firstElementChild.color != color) {
+            elephant.tableMoves.push(allSquares[x + 2 + (y - 2) * 9]);
+          }
+        }
+
+        if (x - 2 >= 0 && y + 2 < 10 && !allSquares[x - 1 + (y + 1) * 9].firstElementChild) {
+          if (!allSquares[x - 2 + (y + 2) * 9].firstElementChild || allSquares[x - 2 + (y + 2) * 9].firstElementChild.color != color) {
+            elephant.tableMoves.push(allSquares[x - 2 + (y + 2) * 9]);
+          }
+        }
+
+        if (x - 2 >= 0 && y - 2 >= 0 && !allSquares[x - 1 + (y - 1) * 9].firstElementChild) {
+          if (!allSquares[x - 2 + (y - 2) * 9].firstElementChild || allSquares[x - 2 + (y - 2) * 9].firstElementChild.color != color) {
+            elephant.tableMoves.push(allSquares[x - 2 + (y - 2) * 9]);
+          }
+        }
       }
 
       function updateAdviserMoves(adviser) {
+
+        if (x + 1 < 6) {
+          if ((y + 1) % 7 < 3) {
+            if (!allSquares[x + 1 + (y + 1) * 9].firstElementChild || allSquares[x + 1 + (y + 1) * 9].firstElementChild.color != color) {
+              adviser.tableMoves.push(allSquares[x + 1 + (y + 1) * 9]);
+            }
+          }
+
+          if (y - 1 >= 0 && (y - 1) % 7 < 3) {// ...
+            if (!allSquares[x + 1 + (y - 1) * 9].firstElementChild || allSquares[x + 1 + (y - 1) * 9].firstElementChild.color != color) {
+              adviser.tableMoves.push(allSquares[x + 1 + (y - 1) * 9]);
+            }
+          }
+        }
+
+        if (x - 1 > 2) {
+          if ((y + 1) % 7 < 3) {
+            if (!allSquares[x - 1 + (y + 1) * 9].firstElementChild || allSquares[x - 1 + (y + 1) * 9].firstElementChild.color != color) {
+              adviser.tableMoves.push(allSquares[x - 1 + (y + 1) * 9]);
+            }
+          }
+
+          if (y - 1 >= 0 && (y - 1) % 7 < 3) {// ...
+            if (!allSquares[x - 1 + (y - 1) * 9].firstElementChild || allSquares[x - 1 + (y - 1) * 9].firstElementChild.color != color) {
+              adviser.tableMoves.push(allSquares[x - 1 + (y - 1) * 9]);
+            }
+          }
+        }
+
 
       }
 

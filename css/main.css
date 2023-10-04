@@ -23,6 +23,7 @@ h1 {
   border: 5px solid black;
   width: 35vw;
   position: relative;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.662);
 }
 
 .game-container .chess-board .board-image {
