@@ -8,10 +8,13 @@ body {
   height: 1000px;
 }
 
-h1 {
+#current-turn {
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 2vw;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
 }
 
 .game-container {
@@ -23,7 +26,8 @@ h1 {
   border: 5px solid black;
   width: 35vw;
   position: relative;
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.662);
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.662);
+  border-radius: 5px 5px;
 }
 
 .game-container .chess-board .board-image {

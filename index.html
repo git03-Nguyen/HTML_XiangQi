@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <h1>Nguyễn Đình Ánh - 21120171</h1>
+  <h1 id="current-turn"></h1>
 
   <!-- Chinese chess board -->
   <div class="game-container">
@@ -18,78 +18,31 @@
       <div class="pieces-field">
         <div class="row">
           <div class="square">
-            <img class="piece black chariot draggable" src="/img/pieces/bR.png" alt="black chariot">
+            <img class="piece black chariot" src="/img/pieces/bR.png" alt="black chariot">
           </div>
           <div class="square">
-            <img class="piece black horse draggable" src="/img/pieces/bN.png" alt="black horse">
+            <img class="piece black horse" src="/img/pieces/bN.png" alt="black horse">
           </div>
           <div class="square">
-            <img class="piece black elephant draggable" src="/img/pieces/bB.png" alt="black elephant">
+            <img class="piece black elephant" src="/img/pieces/bB.png" alt="black elephant">
           </div>
           <div class="square">
-            <img class="piece black adviser draggable" src="/img/pieces/bA.png" alt="black adviser">
+            <img class="piece black adviser" src="/img/pieces/bA.png" alt="black adviser">
           </div>
           <div class="square">
-            <img class="piece black general draggable" src="/img/pieces/bK.png" alt="black general">
+            <img class="piece black general" src="/img/pieces/bK.png" alt="black general">
           </div>
           <div class="square">
-            <img class="piece black adviser draggable" src="/img/pieces/bA.png" alt="black adviser">
+            <img class="piece black adviser" src="/img/pieces/bA.png" alt="black adviser">
           </div>
           <div class="square">
-            <img class="piece black elephant draggable" src="/img/pieces/bB.png" alt="black elephant">
+            <img class="piece black elephant" src="/img/pieces/bB.png" alt="black elephant">
           </div>
           <div class="square">
-            <img class="piece black horse draggable" src="/img/pieces/bN.png" alt="black horse">
+            <img class="piece black horse" src="/img/pieces/bN.png" alt="black horse">
           </div>
           <div class="square">
-            <img class="piece black chariot draggable" src="/img/pieces/bR.png" alt="black chariot">
-          </div>
-        </div>
-        <div class="row">
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-        </div>
-        <div class="row">
-          <div class="square"></div>
-          <div class="square">
-            <img class="piece black cannon draggable" src="/img/pieces/bC.png" alt="black cannon">
-          </div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square">
-            <img class="piece black cannon draggable" src="/img/pieces/bC.png" alt="black cannon">
-          </div>
-          <div class="square"></div>
-        </div>
-        <div class="row">
-          <div class="square">
-            <img class="piece black soldier draggable" src="/img/pieces/bP.png" alt="black soldier">
-          </div>
-          <div class="square"></div>
-          <div class="square">
-            <img class="piece black soldier draggable" src="/img/pieces/bP.png" alt="black soldier">
-          </div>
-          <div class="square"></div>
-          <div class="square">
-            <img class="piece black soldier draggable" src="/img/pieces/bP.png" alt="black soldier">
-          </div>
-          <div class="square"></div>
-          <div class="square">
-            <img class="piece black soldier draggable" src="/img/pieces/bP.png" alt="black soldier">
-          </div>
-          <div class="square"></div>
-          <div class="square">
-            <img class="piece black soldier draggable" src="/img/pieces/bP.png" alt="black soldier">
+            <img class="piece black chariot" src="/img/pieces/bR.png" alt="black chariot">
           </div>
         </div>
         <div class="row">
@@ -105,50 +58,39 @@
         </div>
         <div class="row">
           <div class="square"></div>
+          <div class="square">
+            <img class="piece black cannon" src="/img/pieces/bC.png" alt="black cannon">
+          </div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
+          <div class="square">
+            <img class="piece black cannon" src="/img/pieces/bC.png" alt="black cannon">
+          </div>
           <div class="square"></div>
         </div>
         <div class="row">
           <div class="square">
-            <img class="piece red soldier draggable" src="/img/pieces/rP.png" alt="red soldier">
+            <img class="piece black soldier" src="/img/pieces/bP.png" alt="black soldier">
           </div>
           <div class="square"></div>
           <div class="square">
-            <img class="piece red soldier draggable" src="/img/pieces/rP.png" alt="red soldier">
+            <img class="piece black soldier" src="/img/pieces/bP.png" alt="black soldier">
           </div>
           <div class="square"></div>
           <div class="square">
-            <img class="piece red soldier draggable" src="/img/pieces/rP.png" alt="red soldier">
+            <img class="piece black soldier" src="/img/pieces/bP.png" alt="black soldier">
           </div>
           <div class="square"></div>
           <div class="square">
-            <img class="piece red soldier draggable" src="/img/pieces/rP.png" alt="red soldier">
+            <img class="piece black soldier" src="/img/pieces/bP.png" alt="black soldier">
           </div>
           <div class="square"></div>
           <div class="square">
-            <img class="piece red soldier draggable" src="/img/pieces/rP.png" alt="red soldier">
+            <img class="piece black soldier" src="/img/pieces/bP.png" alt="black soldier">
           </div>
-        </div>
-        <div class="row">
-          <div class="square"></div>
-          <div class="square">
-            <img class="piece red cannon draggable" src="/img/pieces/rC.png" alt="red cannon">
-          </div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square">
-            <img class="piece red cannon draggable" src="/img/pieces/rC.png" alt="red cannon">
-          </div>
-          <div class="square"></div>
         </div>
         <div class="row">
           <div class="square"></div>
@@ -162,474 +104,97 @@
           <div class="square"></div>
         </div>
         <div class="row">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+        <div class="row">
           <div class="square">
-            <img class="piece red chariot draggable" src="/img/pieces/rR.png" alt="red chariot">
+            <img class="piece red soldier" src="/img/pieces/rP.png" alt="red soldier">
+          </div>
+          <div class="square"></div>
+          <div class="square">
+            <img class="piece red soldier" src="/img/pieces/rP.png" alt="red soldier">
+          </div>
+          <div class="square"></div>
+          <div class="square">
+            <img class="piece red soldier" src="/img/pieces/rP.png" alt="red soldier">
+          </div>
+          <div class="square"></div>
+          <div class="square">
+            <img class="piece red soldier" src="/img/pieces/rP.png" alt="red soldier">
+          </div>
+          <div class="square"></div>
+          <div class="square">
+            <img class="piece red soldier" src="/img/pieces/rP.png" alt="red soldier">
+          </div>
+        </div>
+        <div class="row">
+          <div class="square"></div>
+          <div class="square">
+            <img class="piece red cannon" src="/img/pieces/rC.png" alt="red cannon">
+          </div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square">
+            <img class="piece red cannon" src="/img/pieces/rC.png" alt="red cannon">
+          </div>
+          <div class="square"></div>
+        </div>
+        <div class="row">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+        <div class="row">
+          <div class="square">
+            <img class="piece red chariot" src="/img/pieces/rR.png" alt="red chariot">
           </div>
           <div class="square">
-            <img class="piece red horse draggable" src="/img/pieces/rN.png" alt="red horse">
+            <img class="piece red horse" src="/img/pieces/rN.png" alt="red horse">
           </div>
           <div class="square">
-            <img class="piece red elephant draggable" src="/img/pieces/rB.png" alt="red elephant">
+            <img class="piece red elephant" src="/img/pieces/rB.png" alt="red elephant">
           </div>
           <div class="square">
-            <img class="piece red adviser draggable" src="/img/pieces/rA.png" alt="red adviser">
+            <img class="piece red adviser" src="/img/pieces/rA.png" alt="red adviser">
           </div>
           <div class="square">
-            <img class="piece red general draggable" src="/img/pieces/rK.png" alt="red general">
+            <img class="piece red general" src="/img/pieces/rK.png" alt="red general">
           </div>
           <div class="square">
-            <img class="piece red adviser draggable" src="/img/pieces/rA.png" alt="red adviser">
+            <img class="piece red adviser" src="/img/pieces/rA.png" alt="red adviser">
           </div>
           <div class="square">
-            <img class="piece red elephant draggable" src="/img/pieces/rB.png" alt="red elephant">
+            <img class="piece red elephant" src="/img/pieces/rB.png" alt="red elephant">
           </div>
           <div class="square">
-            <img class="piece red horse draggable" src="/img/pieces/rN.png" alt="red horse">
+            <img class="piece red horse" src="/img/pieces/rN.png" alt="red horse">
           </div>
           <div class="square">
-            <img class="piece red chariot draggable" src="/img/pieces/rR.png" alt="red chariot">
+            <img class="piece red chariot" src="/img/pieces/rR.png" alt="red chariot">
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <script>
-
-    // Initializer
-    let chessBoard = document.querySelector(".game-container .chess-board");
-    let allSquares = Array.from(document.querySelectorAll(".game-container .chess-board .pieces-field .row .square"));
-    allSquares.forEach((square, index) => {
-      square.x = index % 9;
-      square.y = Math.floor(index / 9);
-    });
-
-    let colorTurn = true; // black
-    let pieceDragged = null; // no piece is being dragged
-    let availableMoves = null;
-    let oldSquare = null;
-    let lastHoverSquare = null;
-
-    document.querySelectorAll(".piece").forEach(piece => {
-      piece.addEventListener("mousedown", onMouseDownHandler);
-      piece.ondragstart = (event) => event.preventDefault();
-      piece.tableMoves = new Array(); // using to save table moves
-      if (piece.classList.contains("black")) {
-        piece.color = 1;
-      } else {
-        piece.color = 0;
-      }
-    });
-
-    document.querySelectorAll(".piece").forEach(piece => {
-      updateMoves(piece);
-    });
-
-    // Mouse down handler
-    function onMouseDownHandler(event) {
-      if (!event.target.classList.contains("piece")) return;
-      if (!event.target.classList.contains("draggable")) return;
-
-      pieceDragged = event.target;
-
-      oldSquare = pieceDragged.parentElement;
-      console.log("Mouse down");
-
-      chessBoard.insertAdjacentElement("afterBegin", pieceDragged);
-      pieceDragged.classList.add("dragging");
-      oldSquare.classList.add("highlighted");
-
-      movePieceAtSpace(event.clientX, event.clientY);
-
-      showMoves(pieceDragged);
-
-      document.addEventListener('mousemove', onMouseMoveHandler);
-      document.addEventListener('mouseup', onMouseUpHandler);
-
-      // Mouse move handler
-      function onMouseMoveHandler(event) {
-
-        console.log("Mouse move");
-        movePieceAtSpace(event.clientX, event.clientY);
-        oldSquare.classList.add("highlighted");
-
-        pieceDragged.hidden = true;
-        let elemBelow = document.elementFromPoint(event.clientX, event.clientY)?.closest(".square");
-        pieceDragged.hidden = false;
-
-        if (elemBelow != lastHoverSquare) {
-          if (lastHoverSquare) {
-            lastHoverSquare.classList.remove("highlighted");
-          }
-          lastHoverSquare = elemBelow;
-          if (lastHoverSquare && lastHoverSquare.classList.contains("can-move-to")) {
-            lastHoverSquare.classList.add("highlighted");
-          } else {
-            lastHoverSquare = null;
-          }
-        }
-
-      }
-
-      // Mouse up handler
-      function onMouseUpHandler(event) {
-        console.log("Mouse up");
-        document.removeEventListener('mousemove', onMouseMoveHandler);
-        document.removeEventListener('mouseup', onMouseUpHandler);
-        pieceDragged.classList.remove("dragging");
-        if (!lastHoverSquare) {
-          oldSquare.append(pieceDragged); //
-        } else {
-          if (lastHoverSquare.children.length != 0) {
-            lastHoverSquare.children[0].remove();
-            console.log("Removed!");
-          }
-          lastHoverSquare.append(pieceDragged);
-          colorTurn = !colorTurn;
-        }
-
-        oldSquare?.classList.remove("highlighted");
-        lastHoverSquare?.classList.remove("highlighted");
-
-        unshowMoves(pieceDragged);
-        document.querySelectorAll(".piece").forEach(piece => {
-          updateMoves(piece);
-        });
-
-        pieceDragged = null;
-        oldSquare = null;
-        lastHoverSquare = null;
-
-        document.querySelector("h1").textContent = colorTurn ? "black" : "red";
-
-      }
-
-      function movePieceAtSpace(x, y) {
-        const boardRect = chessBoard.getBoundingClientRect();
-        pieceDragged.style.left = (x - boardRect.left - pieceDragged.offsetWidth / 2) + "px";
-        pieceDragged.style.top = (y - boardRect.top - pieceDragged.offsetHeight / 2) + "px";
-      }
-
-    }
-
-    function updateMoves(piece) {
-      let x = piece.parentElement.x;
-      let y = piece.parentElement.y;
-      let color = piece.color;
-
-      let turn = colorTurn ? 1 : 0;
-      if (turn == color) {
-        piece.classList.add("draggable");
-      } else {
-        piece.classList.remove("draggable");
-      }
-
-
-      piece.tableMoves = new Array();
-      if (piece.classList.contains("chariot")) {
-        updateChariotMoves(piece);
-      } else if (piece.classList.contains("horse")) {
-        updateHorseMoves(piece);
-      } else if (piece.classList.contains("elephant")) {
-        updateElephantMoves(piece);
-      } else if (piece.classList.contains("adviser")) {
-        updateAdviserMoves(piece);
-      } else if (piece.classList.contains("general")) {
-        updateGeneralMoves(piece);
-      } else if (piece.classList.contains("cannon")) {
-        updateCannonMoves(piece);
-      } else if (piece.classList.contains("soldier")) {
-        updateSoldierMoves(piece);
-      }
-
-
-      function updateChariotMoves(chariot) {
-
-        while (true) {
-          x++;
-          if (x < 0 || x > 8 || allSquares[x + y * 9].firstElementChild?.color == chariot.color) break;
-          chariot.tableMoves.push(allSquares[x + y * 9]);
-          if (allSquares[x + y * 9].firstElementChild) break;
-        }
-
-        x = chariot.parentElement.x;
-        while (true) {
-          x--;
-          if (x < 0 || x > 8 || allSquares[x + y * 9].firstElementChild?.color == chariot.color) break;
-          chariot.tableMoves.push(allSquares[x + y * 9]);
-          if (allSquares[x + y * 9].firstElementChild) break;
-        }
-
-        x = chariot.parentElement.x;
-        while (true) {
-          y++;
-          if (y < 0 || y > 9 || allSquares[x + y * 9].firstElementChild?.color == chariot.color) break;
-          chariot.tableMoves.push(allSquares[x + y * 9]);
-          if (allSquares[x + y * 9].firstElementChild) break;
-        }
-
-        y = chariot.parentElement.y;
-        while (true) {
-          y--;
-          if (y < 0 || y > 9 || allSquares[x + y * 9].firstElementChild?.color == chariot.color) break;
-          chariot.tableMoves.push(allSquares[x + y * 9]);
-          if (allSquares[x + y * 9].firstElementChild) break;
-        }
-      }
-
-      function updateHorseMoves(horse) {
-        if (x + 2 < 9 && !allSquares[x + 1 + y * 9].firstElementChild) {
-          if (y + 1 < 10 && (!allSquares[x + 2 + (1 + y) * 9].firstElementChild || allSquares[x + 2 + (1 + y) * 9].firstElementChild.color != color)) {
-            horse.tableMoves.push(allSquares[x + 2 + (1 + y) * 9]);
-          }
-          if (y - 1 >= 0 && (!allSquares[x + 2 + (y - 1) * 9].firstElementChild || allSquares[x + 2 + (y - 1) * 9].firstElementChild.color != color)) {
-            horse.tableMoves.push(allSquares[x + 2 + (y - 1) * 9]);
-          }
-        }
-
-        if (x - 2 >= 0 && !allSquares[x - 1 + y * 9].firstElementChild) {
-          if (y + 1 < 10 && (!allSquares[x - 2 + (1 + y) * 9].firstElementChild || allSquares[x - 2 + (1 + y) * 9].firstElementChild.color != color)) {
-            horse.tableMoves.push(allSquares[x - 2 + (1 + y) * 9]);
-          }
-          if (y - 1 >= 0 && (!allSquares[x - 2 + (y - 1) * 9].firstElementChild || allSquares[x - 2 + (y - 1) * 9].firstElementChild.color != color)) {
-            horse.tableMoves.push(allSquares[x - 2 + (y - 1) * 9]);
-          }
-        }
-
-        if (y + 2 < 10 && !allSquares[x + (1 + y) * 9].firstElementChild) {
-          if (x + 1 < 9 && (!allSquares[x + 1 + (2 + y) * 9].firstElementChild || allSquares[x + 1 + (2 + y) * 9].firstElementChild.color != color)) {
-            horse.tableMoves.push(allSquares[x + 1 + (2 + y) * 9]);
-          }
-          if (x - 1 >= 0 && (!allSquares[x - 1 + (y + 2) * 9].firstElementChild || allSquares[x - 1 + (y + 2) * 9].firstElementChild.color != color)) {
-            horse.tableMoves.push(allSquares[x - 1 + (y + 2) * 9]);
-          }
-        }
-
-        if (y - 2 >= 0 && !allSquares[x + (y - 1) * 9].firstElementChild) {
-          if (x + 1 < 9 && (!allSquares[x + 1 + (y - 2) * 9].firstElementChild || allSquares[x + 1 + (y - 2) * 9].firstElementChild.color != color)) {
-            horse.tableMoves.push(allSquares[x + 1 + (y - 2) * 9]);
-          }
-          if (x - 1 >= 0 && (!allSquares[x - 1 + (y - 2) * 9].firstElementChild || allSquares[x - 1 + (y - 2) * 9].firstElementChild.color != color)) {
-            horse.tableMoves.push(allSquares[x - 1 + (y - 2) * 9]);
-          }
-        }
-
-      }
-
-      function updateElephantMoves(elephant) {
-        if (x + 2 < 9 && y + 2 < 10 && !allSquares[x + 1 + (1 + y) * 9].firstElementChild) {
-          if (!allSquares[x + 2 + (y + 2) * 9].firstElementChild || allSquares[x + 2 + (y + 2) * 9].firstElementChild.color != color) {
-            elephant.tableMoves.push(allSquares[x + 2 + (y + 2) * 9]);
-          }
-        }
-
-        if (x + 2 < 9 && y - 2 >= 0 && !allSquares[x + 1 + (y - 1) * 9].firstElementChild) {
-          if (!allSquares[x + 2 + (y - 2) * 9].firstElementChild || allSquares[x + 2 + (y - 2) * 9].firstElementChild.color != color) {
-            elephant.tableMoves.push(allSquares[x + 2 + (y - 2) * 9]);
-          }
-        }
-
-        if (x - 2 >= 0 && y + 2 < 10 && !allSquares[x - 1 + (y + 1) * 9].firstElementChild) {
-          if (!allSquares[x - 2 + (y + 2) * 9].firstElementChild || allSquares[x - 2 + (y + 2) * 9].firstElementChild.color != color) {
-            elephant.tableMoves.push(allSquares[x - 2 + (y + 2) * 9]);
-          }
-        }
-
-        if (x - 2 >= 0 && y - 2 >= 0 && !allSquares[x - 1 + (y - 1) * 9].firstElementChild) {
-          if (!allSquares[x - 2 + (y - 2) * 9].firstElementChild || allSquares[x - 2 + (y - 2) * 9].firstElementChild.color != color) {
-            elephant.tableMoves.push(allSquares[x - 2 + (y - 2) * 9]);
-          }
-        }
-      }
-
-      function updateAdviserMoves(adviser) {
-
-        if (x == 3 || x == 4) {
-          if (y == 0 || y == 1 || y == 7 || y == 8) {
-            if (!allSquares[x + 1 + (y + 1) * 9].firstElementChild || allSquares[x + 1 + (y + 1) * 9].firstElementChild.color != color) {
-              adviser.tableMoves.push(allSquares[x + 1 + (y + 1) * 9]);
-            }
-          }
-
-          if (y == 1 || y == 2 || y == 8 || y == 9) {// ...
-            if (!allSquares[x + 1 + (y - 1) * 9].firstElementChild || allSquares[x + 1 + (y - 1) * 9].firstElementChild.color != color) {
-              adviser.tableMoves.push(allSquares[x + 1 + (y - 1) * 9]);
-            }
-          }
-        }
-
-        if (x == 4 || x == 5) {
-          if (y == 0 || y == 1 || y == 7 || y == 8) {
-            if (!allSquares[x - 1 + (y + 1) * 9].firstElementChild || allSquares[x - 1 + (y + 1) * 9].firstElementChild.color != color) {
-              adviser.tableMoves.push(allSquares[x - 1 + (y + 1) * 9]);
-            }
-          }
-
-          if (y == 1 || y == 2 || y == 8 || y == 9) {// ...
-            if (!allSquares[x - 1 + (y - 1) * 9].firstElementChild || allSquares[x - 1 + (y - 1) * 9].firstElementChild.color != color) {
-              adviser.tableMoves.push(allSquares[x - 1 + (y - 1) * 9]);
-            }
-          }
-        }
-
-
-      }
-
-      function updateGeneralMoves(general) {
-
-        if (x == 3 || x == 4) {
-          if (!allSquares[x + 1 + y * 9].firstElementChild || allSquares[x + 1 + y * 9].firstElementChild.color != color) {
-            general.tableMoves.push(allSquares[x + 1 + y * 9]);
-          }
-        }
-
-        if (x == 4 || x == 5) {
-          if (!allSquares[x - 1 + y * 9].firstElementChild || allSquares[x - 1 + y * 9].firstElementChild.color != color) {
-            general.tableMoves.push(allSquares[x - 1 + y * 9]);
-          }
-        }
-
-        if (y == 2 || y == 1 || y == 8 || y == 9) {
-          if (!allSquares[x + (y - 1) * 9].firstElementChild || allSquares[x + (y - 1) * 9].firstElementChild.color != color) {
-            general.tableMoves.push(allSquares[x + (y - 1) * 9]);
-          }
-        }
-
-        if (y == 0 || y == 1 || y == 7 || y == 8) {
-          if (!allSquares[x + (y + 1) * 9].firstElementChild || allSquares[x + (y + 1) * 9].firstElementChild.color != color) {
-            general.tableMoves.push(allSquares[x + (y + 1) * 9]);
-          }
-        }
-      }
-
-      function updateCannonMoves(cannon) {
-
-        let useCannnon = false;
-        while (true) {
-          x++;
-          if (x < 0 || x > 8) break;
-          if (!useCannnon) {
-            if (allSquares[x + y * 9].firstElementChild) {
-              useCannnon = true;
-            } else {
-              cannon.tableMoves.push(allSquares[x + y * 9]);
-            }
-          } else {
-            if (allSquares[x + y * 9].firstElementChild) {
-              if (allSquares[x + y * 9].firstElementChild.color != color) {
-                cannon.tableMoves.push(allSquares[x + y * 9]);
-              }
-              break;
-            }
-          }
-
-        }
-
-        useCannnon = false;
-        x = cannon.parentElement.x;
-        while (true) {
-          x--;
-          if (x < 0 || x > 8) break;
-          if (!useCannnon) {
-            if (allSquares[x + y * 9].firstElementChild) {
-              useCannnon = true;
-            } else {
-              cannon.tableMoves.push(allSquares[x + y * 9]);
-            }
-          } else {
-            if (allSquares[x + y * 9].firstElementChild) {
-              if (allSquares[x + y * 9].firstElementChild.color != color) {
-                cannon.tableMoves.push(allSquares[x + y * 9]);
-              }
-              break;
-            }
-          }
-        }
-
-        useCannnon = false;
-        x = cannon.parentElement.x;
-        while (true) {
-          y++;
-          if (y < 0 || y > 9) break;
-          if (!useCannnon) {
-            if (allSquares[x + y * 9].firstElementChild) {
-              useCannnon = true;
-            } else {
-              cannon.tableMoves.push(allSquares[x + y * 9]);
-            }
-          } else {
-            if (allSquares[x + y * 9].firstElementChild) {
-              if (allSquares[x + y * 9].firstElementChild.color != color) {
-                cannon.tableMoves.push(allSquares[x + y * 9]);
-              }
-              break;
-            }
-          }
-        }
-
-        useCannnon = false;
-        y = cannon.parentElement.y;
-        while (true) {
-          y--;
-          if (y < 0 || y > 9) break;
-          if (!useCannnon) {
-            if (allSquares[x + y * 9].firstElementChild) {
-              useCannnon = true;
-            } else {
-              cannon.tableMoves.push(allSquares[x + y * 9]);
-            }
-          } else {
-            if (allSquares[x + y * 9].firstElementChild) {
-              if (allSquares[x + y * 9].firstElementChild.color != color) {
-                cannon.tableMoves.push(allSquares[x + y * 9]);
-              }
-              break;
-            }
-          }
-        }
-      }
-
-      function updateSoldierMoves(soldier) {
-        if (soldier.color == 1) {
-          if (y + 1 <= 9 && allSquares[x + (y + 1) * 9].firstElementChild?.color != color) {
-            soldier.tableMoves.push(allSquares[x + (y + 1) * 9]);
-          }
-          if (y > 4) {
-            if (x - 1 >= 0 && allSquares[x - 1 + y * 9].firstElementChild?.color != color) {
-              soldier.tableMoves.push(allSquares[x - 1 + y * 9]);
-            }
-            if (x + 1 <= 8 && allSquares[x + 1 + y * 9].firstElementChild?.color != color) {
-              soldier.tableMoves.push(allSquares[x + 1 + y * 9]);
-            }
-          }
-        } else {
-          if (y - 1 >= 0 && allSquares[x + (y - 1) * 9].firstElementChild?.color != color) {
-            soldier.tableMoves.push(allSquares[x + (y - 1) * 9]);
-          }
-          if (y < 5) {
-            if (x - 1 >= 0 && allSquares[x - 1 + y * 9].firstElementChild?.color != color) {
-              soldier.tableMoves.push(allSquares[x - 1 + y * 9]);
-            }
-            if (x + 1 <= 8 && allSquares[x + 1 + y * 9].firstElementChild?.color != color) {
-              soldier.tableMoves.push(allSquares[x + 1 + y * 9]);
-            }
-          }
-        }
-      }
-
-    }
-
-    function showMoves(piece) {
-      piece.tableMoves.forEach(square => square.classList.add("can-move-to"));
-    }
-
-    function unshowMoves(piece) {
-      piece.tableMoves.forEach(square => square.classList.remove("can-move-to"));
-    }
-
-
-
-  </script>
+  <script src="/js/chess.js"></script>
 
 </body>
 
